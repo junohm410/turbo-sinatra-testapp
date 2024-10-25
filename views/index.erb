@@ -1,0 +1,22 @@
+<h1>ブログ</h1>
+
+<div>
+  <% @blogs.each do |blog| %>
+    <div>
+      <h2>タイトル: <%= h(blog['title']) %></h2>
+
+      <p><%= h(blog['content']) %></p>
+
+      <a href="blogs/<%= blog['id'] %>/edit">編集</a>
+
+      <form action="/blogs/<%= blog['id'] %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="削除">
+      </form>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<a href="blogs/new">新規記事作成</a>

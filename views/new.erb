@@ -1,0 +1,19 @@
+<h1>新規記事作成</h1>
+
+<div>
+  <form action="/blogs" method="post">
+    <div>
+      <label for="title">タイトル</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+    <div>
+      <label for="content">本文</label>
+      <textarea id="content" name="content" cols="30" rows="10" required></textarea>
+    </div>
+    <div>
+      <input type="submit" value="保存">
+    </div>
+  </form>
+
+  <a href="/blogs">戻る</a>
+</div>
