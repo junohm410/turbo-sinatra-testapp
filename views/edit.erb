@@ -1,20 +1,22 @@
 <h1>記事編集</h1>
 
-<div>
-  <form action="/blogs/<%= @blog['id'].to_s %>" method="post">
-    <div>
-      <label for="title">タイトル</label>
-      <input type="text" id="title" name="title" value="<%= h(@blog['title']) %>" required>
-    </div>
-    <div>
-      <label for="content">本文</label>
-      <textarea id="content" name="content" cols="30" rows="10" required><%= h(@blog['content']) %></textarea>
-    </div>
-    <div>
-      <input type="hidden" name="_method" value="patch">
-      <input type="submit" value="変更">
-    </div>
-  </form>
+<form action="/blogs/<%= @blog['id'] %>" method="post">
+  <div class="mt-3">
+    <label for="title" class="form-label">タイトル</label>
+    <input type="text" id="title" name="title" class="form-control" value="<%= h(@blog['title']) %>" required>
+  </div>
 
+  <div class="mt-3">
+    <label for="content" class="form-label">本文</label>
+    <textarea id="content" name="content" class="form-control" required><%= h(@blog['content']) %></textarea>
+  </div>
+
+  <div class="mt-3">
+    <input type="hidden" name="_method" value="patch">
+    <button class="btn btn-primary">変更</button>
+  </div>
+</form>
+
+<div class="mt-2">
   <a href="/blogs">戻る</a>
 </div>

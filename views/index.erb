@@ -1,22 +1,22 @@
 <h1>ブログ</h1>
 
-<div>
-  <% @blogs.each do |blog| %>
-    <div>
-      <h2>タイトル: <%= h(blog['title']) %></h2>
-
+<% @blogs.each do |blog| %>
+  <article class="card mt-4">
+    <div class="card-body">
+      <h2><%= h(blog['title']) %></h2>
       <p><%= h(blog['content']) %></p>
 
-      <a href="blogs/<%= blog['id'] %>/edit">編集</a>
-
-      <form action="/blogs/<%= blog['id'] %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="削除">
-      </form>
+      <div class="d-flex">
+        <a href="blogs/<%= blog['id'] %>/edit" class="btn btn-primary">編集</a>
+        <form action="/blogs/<%= blog['id'] %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button class="btn btn-secondary ms-2">削除</button>
+        </form>
+      </div>
     </div>
-  <% end %>
+  </article>
+<% end %>
+
+<div class="mt-4">
+  <a href="blogs/new">新規記事作成</a>
 </div>
-
-<br>
-
-<a href="blogs/new">新規記事作成</a>
